@@ -25,7 +25,7 @@ exports[`test/snapshot/generateTrackReleaseInfo.js TAP generateTrackReleaseInfo 
 <p>
     By <a href="artist/toby-fox/">Toby Fox</a>.
     <br>
-    Cover art by <span class="nowrap"><a href="artist/alpaca/">Alpaca</a> (🔥)</span>.
+    Cover art by <span class="contribution"><a href="artist/alpaca/">Alpaca</a> (🔥)</span>.
 </p>
 <p>This wiki doesn&apos;t have any listening links for <i>Suspicious Track</i>.</p>
 `

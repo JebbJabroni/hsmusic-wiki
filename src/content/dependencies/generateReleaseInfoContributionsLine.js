@@ -36,6 +36,7 @@ export default {
             link.slots({
               showContribution: slots.showContribution,
               showIcons: slots.showIcons,
+              iconMode: 'tooltip',
             }))),
     });
   },
