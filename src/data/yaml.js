@@ -462,6 +462,8 @@ export const processArtTagDocument = makeProcessDocument(T.ArtTag, {
 
     color: 'Color',
     isContentWarning: 'Is CW',
+
+    directDescendantTags: 'Direct Descendant Tags',
   },
 });
 
@@ -1359,7 +1361,7 @@ export function linkWikiDataArrays(wikiData, {
   assignWikiData(WD.groupCategoryData, 'groupData');
   assignWikiData(WD.flashData, 'artistData', 'flashActData', 'trackData');
   assignWikiData(WD.flashActData, 'flashData');
-  assignWikiData(WD.artTagData, 'albumData', 'trackData');
+  assignWikiData(WD.artTagData, 'albumData', 'artTagData', 'trackData');
   assignWikiData(WD.homepageLayout?.rows, 'albumData', 'groupData');
 }
 
@@ -1475,6 +1477,10 @@ export function filterReferenceErrors(wikiData) {
       bannerArtistContribs: '_contrib',
       groups: 'group',
       artTags: 'artTag',
+    }],
+
+    ['artTagData', processArtTagDocument, {
+      directDescendantTags: 'artTag',
     }],
 
     ['trackData', processTrackDocument, {
