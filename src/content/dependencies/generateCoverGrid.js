@@ -16,6 +16,19 @@ export default {
     names: {validate: v => v.strictArrayOf(v.isHTML)},
     info: {validate: v => v.strictArrayOf(v.isHTML)},
 
+    // Differentiating from sparseArrayOf here - this list of classes should
+    // have the same length as the items above, i.e. nulls aren't going to be
+    // filtered out of it, but it is okay to *include* null (standing in for
+    // no classes for this grid item).
+    classes: {
+      validate: v =>
+        v.strictArrayOf(
+          v.optional(
+            v.oneOf(
+              v.isArray,
+              v.isString))),
+    },
+
     lazy: {validate: v => v.oneOf(v.isWholeNumber, v.isBoolean)},
     actionLinks: {validate: v => v.sparseArrayOf(v.isHTML)},
   },
@@ -24,13 +37,26 @@ export default {
     return (
       html.tag('div', {class: 'grid-listing'}, [
         stitchArrays({
+          classOrClasses: slots.classes,
           image: slots.images,
           link: slots.links,
           name: slots.names,
           info: slots.info,
-        }).map(({image, link, name, info}, index) =>
+        }).map(({classOrClasses, image, link, name, info}, index) =>
             link.slots({
-              attributes: {class: ['grid-item', 'box']},
+              attributes: {
+                class: [
+                  'grid-item',
+                  'box',
+                  ...
+                    (Array.isArray(classOrClasses)
+                      ? classOrClasses
+                   : typeof classOrClasses === 'string'
+                      ? [classOrClasses]
+                      : []),
+                ],
+              },
+
               content: [
                 image.slots({
                   thumb: 'medium',
