@@ -104,7 +104,11 @@ export const replacerSpec = {
   },
   tag: {
     find: 'artTag',
-    link: 'tag',
+    link: 'artTag',
+  },
+  'tag-info': {
+    find: 'artTag',
+    link: 'artTagInfo',
   },
   track: {
     find: 'track',
@@ -118,13 +122,14 @@ const linkThingRelationMap = {
   albumGallery: 'linkAlbumGallery',
   artist: 'linkArtist',
   artistGallery: 'linkArtistGallery',
+  artTag: 'linkArtTagGallery',
+  artTagInfo: 'linkArtTag',
   flash: 'linkFlash',
   groupInfo: 'linkGroup',
   groupGallery: 'linkGroupGallery',
   listing: 'linkListing',
   newsEntry: 'linkNewsEntry',
   staticPage: 'linkStaticPage',
-  tag: 'linkArtTag',
   track: 'linkTrack',
 };
 

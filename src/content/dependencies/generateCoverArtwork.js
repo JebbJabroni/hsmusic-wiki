@@ -1,7 +1,7 @@
 import {empty} from '#sugar';
 
 export default {
-  contentDependencies: ['image', 'linkArtTag'],
+  contentDependencies: ['image', 'linkArtTagGallery'],
   extraDependencies: ['html', 'language'],
 
   relations(relation, artTags) {
@@ -11,12 +11,12 @@ export default {
       relation('image', artTags);
 
     if (artTags) {
-      relations.tagLinks =
+      relations.artTagLinks =
         artTags
-          .filter(tag => !tag.isContentWarning)
-          .map(tag => relation('linkArtTag', tag));
+          .filter(artTag => !artTag.isContentWarning)
+          .map(artTag => relation('linkArtTagGallery', artTag));
     } else {
-      relations.tagLinks = null;
+      relations.artTagLinks = null;
     }
 
     return relations;
@@ -52,12 +52,12 @@ export default {
               square: true,
             }),
 
-          !empty(relations.tagLinks) &&
+          !empty(relations.artTagLinks) &&
             html.tag('p',
               language.$('releaseInfo.artTags.inline', {
                 tags:
                   language.formatUnitList(
-                    relations.tagLinks
+                    relations.artTagLinks
                       .map(tagLink => tagLink.slot('preferShortName', true))),
               })),
           ]);

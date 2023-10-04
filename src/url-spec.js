@@ -47,7 +47,10 @@ const urlSpec = {
       newsEntry: 'news/<>/',
 
       staticPage: '<>/',
-      tag: 'tag/<>/',
+
+      artTagInfo: 'tag/<>/info/',
+      artTagGallery: 'tag/<>/',
+
       track: 'track/<>/',
     },
   },

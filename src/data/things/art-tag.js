@@ -18,7 +18,7 @@ import {
   wikiData,
 } from '#composite/wiki-properties';
 
-import {withAllDescendantTags} from '#composite/things/art-tag';
+import {withAllDescendantArtTags} from '#composite/things/art-tag';
 
 import Thing from './thing.js';
 
@@ -47,7 +47,7 @@ export class ArtTag extends Thing {
 
     description: simpleString(),
 
-    directDescendantTags: referenceList({
+    directDescendantArtTags: referenceList({
       class: input.value(ArtTag),
       find: input.value(find.artTag),
       data: 'artTagData',
@@ -88,23 +88,25 @@ export class ArtTag extends Thing {
     },
 
     indirectlyTaggedInThings: [
-      withAllDescendantTags(),
+      withAllDescendantArtTags(),
 
       {
-        dependencies: ['#allDescendantTags'],
-        compute: ({'#allDescendantTags': allDescendantTags}) =>
-          unique(allDescendantTags.flatMap(tag => tag.directlyTaggedInThings)),
+        dependencies: ['#allDescendantArtTags'],
+        compute: ({'#allDescendantArtTags': allDescendantArtTags}) =>
+          unique(
+            allDescendantArtTags
+              .flatMap(artTag => artTag.directlyTaggedInThings)),
       },
     ],
 
-    allDescendantTags: [
-      withAllDescendantTags(),
-      exposeDependency({dependency: '#allDescendantTags'}),
+    allDescendantArtTags: [
+      withAllDescendantArtTags(),
+      exposeDependency({dependency: '#allDescendantArtTags'}),
     ],
 
-    directAncestorTags: reverseReferenceList({
+    directAncestorArtTags: reverseReferenceList({
       data: 'artTagData',
-      list: input.value('directDescendantTags'),
+      list: input.value('directDescendantArtTags'),
     }),
   });
 }
