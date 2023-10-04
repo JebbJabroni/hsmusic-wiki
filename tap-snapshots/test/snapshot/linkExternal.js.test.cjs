@@ -30,6 +30,15 @@ exports[`test/snapshot/linkExternal.js > TAP > linkExternal (snapshot) > custom 
 <a href="https://youtube.com/Playlist?list=kweh" class="nowrap">YouTube (playlist)</a>
 `
 
+exports[`test/snapshot/linkExternal.js > TAP > linkExternal (snapshot) > fandom page match 1`] = `
+<a href="https://community.fandom.com/" class="nowrap">Fandom</a>
+<a href="https://community.fandom.com/wiki/" class="nowrap">Fandom</a>
+<a href="https://community.fandom.com/wiki/Community_Central" class="nowrap">Fandom</a>
+<a href="https://mspaintadventures.fandom.com/" class="nowrap">MSPA Wiki</a>
+<a href="https://mspaintadventures.fandom.com/wiki/" class="nowrap">MSPA Wiki</a>
+<a href="https://mspaintadventures.fandom.com/wiki/Draconian_Dignitary" class="nowrap">MSPA Wiki (Draconian Dignitary)</a>
+`
+
 exports[`test/snapshot/linkExternal.js > TAP > linkExternal (snapshot) > missing domain (arbitrary local path) 1`] = `
 <a href="/foo/bar/baz.mp3" class="nowrap">Wiki Archive (local upload)</a>
 `

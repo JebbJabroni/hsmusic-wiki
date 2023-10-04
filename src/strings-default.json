@@ -182,6 +182,7 @@
   "misc.external.deviantart": "DeviantArt",
   "misc.external.fandom": "Fandom",
   "misc.external.fandom.mspaintadventures": "MSPA Wiki",
+  "misc.external.fandom.mspaintadventures.page": "MSPA Wiki ({PAGE})",
   "misc.external.instagram": "Instagram",
   "misc.external.mastodon": "Mastodon",
   "misc.external.mastodon.domain": "Mastodon ({DOMAIN})",

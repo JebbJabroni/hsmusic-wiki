@@ -58,7 +58,14 @@ export default {
 
     : domain.includes('fandom.com')
         ? domain.includes('mspaintadventures.')
-          ? language.$('misc.external.fandom.mspaintadventures')
+          ? data.url.match(/\/wiki\/(.+)\/?$/)
+            ? language.$('misc.external.fandom.mspaintadventures.page', {
+                page:
+                  language.sanitize(
+                    decodeURIComponent(data.url.match(/\/wiki\/(.+)\/?$/)[1])
+                      .replace(/_/g, ' ')),
+              })
+            : language.$('misc.external.fandom.mspaintadventures')
           : language.$('misc.external.fandom')
 
     : domain.includes('soundcloud')

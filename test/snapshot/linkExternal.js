@@ -51,4 +51,16 @@ testContentFunctions(t, 'linkExternal (snapshot)', async (t, evaluate) => {
       {args: ['https://types.pl/']},
     ],
   });
+
+  evaluate.snapshot('fandom page match', {
+    name: 'linkExternal',
+    multiple: [
+      {args: ['https://community.fandom.com/']},
+      {args: ['https://community.fandom.com/wiki/']},
+      {args: ['https://community.fandom.com/wiki/Community_Central']},
+      {args: ['https://mspaintadventures.fandom.com/']},
+      {args: ['https://mspaintadventures.fandom.com/wiki/']},
+      {args: ['https://mspaintadventures.fandom.com/wiki/Draconian_Dignitary']},
+    ],
+  });
 });
