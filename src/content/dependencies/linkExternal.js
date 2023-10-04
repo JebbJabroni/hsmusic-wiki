@@ -56,6 +56,11 @@ export default {
             : language.$('misc.external.youtube.fullAlbum')
           : language.$('misc.external.youtube')
 
+    : domain.includes('fandom.com')
+        ? domain.includes('mspaintadventures.')
+          ? language.$('misc.external.fandom.mspaintadventures')
+          : language.$('misc.external.fandom')
+
     : domain.includes('soundcloud')
         ? language.$('misc.external.soundcloud')
 
