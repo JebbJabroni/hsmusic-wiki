@@ -98,6 +98,11 @@ export default {
           ? ['media.trackCover', thing.album.directory, thing.directory, thing.coverArtFileExtension]
           : ['media.albumCover', thing.directory, thing.coverArtFileExtension]));
 
+    data.coverArtists =
+      query.allThings.map(thing =>
+        thing.coverArtistContribs
+          .map(({who: artist}) => artist.name));
+
     data.onlyFeaturedIndirectly =
       query.allThings.map(thing =>
         !query.directThings.includes(thing));
@@ -163,6 +168,14 @@ export default {
                   path: data.paths,
                 }).map(({image, path}) =>
                     image.slot('path', path)),
+
+              info:
+                data.coverArtists.map(names =>
+                  (names === null
+                    ? null
+                    : language.$('misc.albumGrid.details.coverArtists', {
+                        artists: language.formatUnitList(names),
+                      }))),
             }),
         ],
 
