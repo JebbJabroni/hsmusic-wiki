@@ -466,10 +466,18 @@ a {
 
 a:hover {
   text-decoration: underline;
+  text-decoration-style: solid !important;
 }
 
 a.current {
   font-weight: 800;
+}
+
+.group-contributions-sort-button,
+.quick-description .quick-description-actions .expand-link,
+.quick-description .quick-description-actions .collapse-link {
+  text-decoration: underline;
+  text-decoration-style: dotted;
 }
 
 .nav-main-links > span > span {
