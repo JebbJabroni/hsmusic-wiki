@@ -434,8 +434,10 @@ export const processFlashDocument = makeProcessDocument(T.Flash, {
 export const processFlashActDocument = makeProcessDocument(T.FlashAct, {
   propertyFieldMapping: {
     name: 'Act',
+    directory: 'Directory',
+
     color: 'Color',
-    anchor: 'Anchor',
+
     jump: 'Jump',
     jumpColor: 'Jump Color',
   },
@@ -1393,6 +1395,7 @@ export function filterDuplicateDirectories(wikiData) {
     'albumData',
     'artTagData',
     'flashData',
+    'flashActData',
     'groupData',
     'newsData',
     'trackData',

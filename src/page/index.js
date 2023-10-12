@@ -3,6 +3,7 @@ export * as artist from './artist.js';
 export * as artistAlias from './artist-alias.js';
 export * as artTag from './art-tag.js';
 export * as flash from './flash.js';
+export * as flashAct from './flash-act.js';
 export * as group from './group.js';
 export * as homepage from './homepage.js';
 export * as listing from './listing.js';
